@@ -12,5 +12,5 @@ jobs:
     - name: setup exakat
       run: docker pull exakat/exakat
     - name: analytics
-      run: docker run -v $(pwd):/usr/src/exakat/projects/webapp --rm exakat/exakat "exakat project - p webap"
+      run: docker run -v $(pwd):/usr/src/exakat/projects/webapp --rm exakat/exakat "exakat project - p webapp"
       shell: bash
