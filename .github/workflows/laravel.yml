@@ -11,6 +11,8 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: setup exakat
       run: docker pull exakat/exakat
+    - name: setting exakat
+      run: echo "project: 'webapp'" > .exakat.yml
     - name: analytics
-      run: docker run -v $(pwd):/usr/src/exakat/projects/webapp --rm exakat/exakat exakat
+      run: docker run -v $(pwd):/usr/src/exakat/projects/webapp --rm exakat/exakat exakat project - p webapp
     
