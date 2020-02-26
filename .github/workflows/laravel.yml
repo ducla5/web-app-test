@@ -1,0 +1,18 @@
+name: Exakat
+
+on: [push]
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: setup exakat
+      run: exakat extension install Laravel
+    - name: init
+      run: exakat init -p test-app -R ${PWD} -symlink
+    - name: analytics
+      run: exakat
+    
