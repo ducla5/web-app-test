@@ -3,7 +3,7 @@ name: Exakat
 on: [push]
 
 jobs:
-  laravel-tests:
+  laravel-analytics:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -12,7 +12,6 @@ jobs:
     - name: setup exakat
       run: docker pull exakat/exakat
     - name: setting exakat
-      run: echo "project: 'webapp'" > .exakat.yml
     - name: analytics
       run: docker run -v $(pwd):/usr/src/exakat/projects/webapp --rm exakat/exakat exakat project - p webapp
     
