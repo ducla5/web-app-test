@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: test-docker
+      run: docker -v
     - name: setup exakat
       run: exakat extension install Laravel
     - name: init
